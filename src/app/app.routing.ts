@@ -20,6 +20,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'client',
+    loadChildren: () => import('./pages/client/client.module').then(m => m.ClientModule),
+    canActivate: [FeatureFlagGuard],
+    data: {
+      featureFlag: 'client'
+    }
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

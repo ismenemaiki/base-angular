@@ -16,6 +16,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { TableComponent } from './common/components/table/table.component';
+import { TableModule } from './common/components/table/table.module';
+import { MatTableModule } from '@angular/material/table';
 
 export const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
 @NgModule({
@@ -40,7 +43,9 @@ export const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    AvatarModule
+    AvatarModule,
+    // TableModule
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

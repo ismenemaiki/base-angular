@@ -1,4 +1,4 @@
-import { Menu } from './common/models/menu/menu.model';
+import { Menu } from './common/models/menu.model';
 import { MenuService } from './common/services/menu/menu.service';
 import { PubsubService } from './common/services/pubsub/pubsub.service';
 import { Emitters } from './common/services/pubsub/pubsub-emitters';
