@@ -1,9 +1,16 @@
-<h1>Lista de clientes</h1>
-
-<div class="p-8">
-
+<div class="content">
+  <div class="space-between">
+    <h1>Lista de clientes</h1>
+    <div>
+      <button mat-raised-button color="primary" (click)="addNewClient()">
+        Adicionar cliente
+      </button>
+    </div>
+  </div>
+  <div>
     <app-table
-    [displayedColumns]="displayedColumns"
-    [data]="clientList"
+      [displayedColumns]="displayedColumns"
+      [data]="clientList"
     ></app-table>
+  </div>
 </div>

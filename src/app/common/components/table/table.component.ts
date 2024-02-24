@@ -11,6 +11,7 @@ import {
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-table",
@@ -21,13 +22,14 @@ export class TableComponent implements OnInit, AfterViewInit {
   @Input() displayedColumns: string[];
   @Input() data: any;
 
-  dataSource: MatTableDataSource<any>;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChildren("matCellDef") matCellDefs: QueryList<ElementRef>;
+  
+  dataSource: MatTableDataSource<any>;
 
-  constructor() {
+  constructor(
+    private router: Router) {
     setTimeout(() => {
       this.dataSource = new MatTableDataSource(this.data);
     }, 100);
@@ -49,5 +51,10 @@ export class TableComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  onRowClick(row: any) {
+    sessionStorage.setItem('isEditing', JSON.stringify(row))
+    this.router.navigate(['client/edit-add']);
   }
 }

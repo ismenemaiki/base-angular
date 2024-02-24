@@ -1,8 +1,18 @@
-@import 'sass/theme';
+@import "sass/theme";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.content {
+  padding: 12px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .m-8 {
-    margin: 8px;
+  margin: 8px;
 }
