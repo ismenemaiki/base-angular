@@ -2,9 +2,11 @@
   "i18n": {
     "name": "Sistema de venda",
     "menu": {
-      "item-1": "Home",
+      "item-1": "Inicio",
       "item-2": "Sobre",
-      "client": "Clientes"
+      "client": "Clientes",
+      "product": "Produtos",
+      "credit": "Fiado"
     }
   }
 }

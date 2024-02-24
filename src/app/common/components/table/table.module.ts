@@ -9,8 +9,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [TableComponent],
-  exports: [TableComponent],
+  declarations: [],
+  exports: [],
   imports: [
     CommonModule,
     MatIconModule,

@@ -9,8 +9,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { FormClientComponent } from './form-client/form-client.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ClientRouting,
-    TableModule,
+    SharedModule,
     MatIconModule,
     MatButtonModule,
     MatDividerModule,

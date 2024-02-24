@@ -5,9 +5,7 @@ export class Menu {
 
   static build(payload) {
     const item = new Menu();
-
-    Object.assign(item, payload);
-
+    Object.assign(item, payload);    
     return item;
   }
 }

@@ -17,6 +17,8 @@
   "featureFlags": {
     "home": true,
     "about": true,
-    "client": true
+    "client": true,
+    "product": true,
+    "credit": true
   }
 }

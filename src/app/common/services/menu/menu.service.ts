@@ -11,6 +11,8 @@ export class MenuService {
       Menu.build({name: 'i18n.menu.item-1', route: 'home', featureFlag: 'home'}),
       Menu.build({name: 'i18n.menu.item-2', route: 'about', featureFlag: 'about'}),
       Menu.build({name: 'i18n.menu.client', route: 'client', featureFlag: 'client'}),
+      Menu.build({name: 'i18n.menu.product', route: 'product', featureFlag: 'product'}),
+      Menu.build({name: 'i18n.menu.credit', route: 'credit', featureFlag: 'credit'}),
     ]).pipe(
       map(item => item.filter(menu => menu.featureFlag && environment?.featureFlags[menu.featureFlag]))
     );
