@@ -2,7 +2,6 @@ import { ClientRouting } from './client.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
-import { TableModule } from 'src/app/common/components/table/table.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -28,8 +27,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatInputModule,
     MatSnackBarModule,
   ],
-  providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
-  ]
+
 })
 export class ClientModule { }

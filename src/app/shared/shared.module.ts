@@ -1,7 +1,7 @@
 import { LayoutModule } from "@angular/cdk/layout";
 import { NgModule } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from "@angular/material/form-field";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
@@ -16,9 +16,11 @@ import { TableComponent } from "../common/components/table/table.component";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { HttpClient } from "@angular/common/http";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { NgxMaskModule } from "ngx-mask";
-import { maskOptions, createTranslateLoader } from "../app.module";
+
+import { IConfig, NgxMaskModule } from "ngx-mask";
+import { createTranslateLoader } from "../app.module";
+
+const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 const importExport = [
   MatGridListModule,
@@ -41,18 +43,11 @@ const importExport = [
 
 @NgModule({
   declarations: [TableComponent],
-  imports: [
-    importExport,
-    NgxMaskModule.forRoot(maskOptions),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
-  ],
+  imports: [importExport, NgxMaskModule.forRoot(maskOptions)],
   exports: [importExport, TableComponent],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
   entryComponents: [],
 })
 export class SharedModule {}

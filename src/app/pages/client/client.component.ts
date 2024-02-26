@@ -1,4 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  AfterContentInit,
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 import { Router } from "@angular/router";
 
 @Component({
@@ -6,8 +17,13 @@ import { Router } from "@angular/router";
   templateUrl: "./client.component.html",
   styleUrls: ["./client.component.scss"],
 })
-export class ClientComponent implements OnInit {
+export class ClientComponent implements OnInit, AfterContentInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChildren("matCellDef") matCellDefs: QueryList<ElementRef>;
   displayedColumns: string[] = ["id", "name", "phoneNumber", "address"];
+  dataSource: MatTableDataSource<any>;
+
   clientList = [
     {
       id: 1,
@@ -27,12 +43,38 @@ export class ClientComponent implements OnInit {
     { id: 11, name: "Maria", phoneNumber: 1199990000, address: "Rua XYZO" },
     { id: 12, name: "Jessica", phoneNumber: 1199990000, address: "Rua XYZO" },
   ];
-  constructor(private router: Router) {}
+
+  constructor(private router: Router) {
+    setTimeout(() => {
+      this.dataSource = new MatTableDataSource(this.clientList);
+    }, 100);
+  }
+  
+  ngAfterContentInit(): void {
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }, 100);
+  }
 
   ngOnInit(): void {}
 
   addNewClient() {
-    sessionStorage.removeItem('isEditing')
-    this.router.navigate(['client/edit-add']);
+    sessionStorage.removeItem("isEditing");
+    this.router.navigate(["client/edit-add"]);
+  }
+
+  onRowClick(row: any) {
+    sessionStorage.setItem("isEditing", JSON.stringify(row));
+    this.router.navigate(["client/edit-add"]);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

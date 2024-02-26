@@ -1,10 +1,12 @@
 import {
   AfterViewInit,
   Component,
+  ContentChild,
   ElementRef,
   Input,
   OnInit,
   QueryList,
+  TemplateRef,
   ViewChild,
   ViewChildren,
 } from "@angular/core";
@@ -19,17 +21,28 @@ import { Router } from "@angular/router";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  @Input() displayedColumns: string[];
+  @Input() displayedColumns: any[];
   @Input() data: any;
+  @Input() configs: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChildren("matCellDef") matCellDefs: QueryList<ElementRef>;
-  
-  dataSource: MatTableDataSource<any>;
 
-  constructor(
-    private router: Router) {
+  @ContentChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
+
+  dataSource: MatTableDataSource<any>;
+  configsTable = [
+    {
+      header: [
+        { label: "id", value: "ID" },
+        { label: "name", value: "Nome" },
+        { label: "phoneNumber", value: "Celular" },
+        { label: "address", value: "Endereço" },
+      ],
+    },
+  ];
+  constructor(private router: Router) {
     setTimeout(() => {
       this.dataSource = new MatTableDataSource(this.data);
     }, 100);
@@ -54,7 +67,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   onRowClick(row: any) {
-    sessionStorage.setItem('isEditing', JSON.stringify(row))
-    this.router.navigate(['client/edit-add']);
+    sessionStorage.setItem("isEditing", JSON.stringify(row));
+    this.router.navigate(["client/edit-add"]);
   }
 }

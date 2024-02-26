@@ -8,7 +8,7 @@ import { IConfig } from "ngx-mask";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./shared/shared.module";
 import { CommonModule } from "@angular/common";
-
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 export const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -19,7 +19,14 @@ export const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
     CommonModule,
     AppRouting,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
