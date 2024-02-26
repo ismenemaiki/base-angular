@@ -2,16 +2,9 @@ import { ClientRouting } from './client.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
 import { FormClientComponent } from './form-client/form-client.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-
 
 @NgModule({
   declarations: [ClientComponent, FormClientComponent],
@@ -20,13 +13,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     ClientRouting,
     SharedModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule,
   ],
-
 })
 export class ClientModule { }

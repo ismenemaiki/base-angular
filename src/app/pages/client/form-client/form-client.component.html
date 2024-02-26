@@ -35,8 +35,7 @@
     <button
       mat-raised-button
       color="primary"
-      [routerLink]="['/client']"
-      (click)="adicionarCliente()"
+      (click)="triggerAction(isEditing)"
     >
       {{ isEditing ? 'Editar Cliente' : 'Adicionar Cliente'}}
     </button>

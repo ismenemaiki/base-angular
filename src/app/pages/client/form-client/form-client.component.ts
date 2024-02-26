@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 import { Client } from "src/app/common/models/client.model";
 import { ClientService } from "src/app/common/services/client/client.service";
-import { PubsubService } from "src/app/common/services/pubsub/pubsub.service";
 
 @Component({
   selector: "app-form-client",
@@ -14,7 +14,8 @@ export class FormClientComponent implements OnInit {
   isEditing: any;
   constructor(
     private _snackBar: MatSnackBar,
-    private service: ClientService
+    private service: ClientService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +27,7 @@ export class FormClientComponent implements OnInit {
     }
   }
 
-  adicionarCliente() {
+  triggerAction(isEditing: boolean) {
     const cliente = {
       name: this.clientModel.name,
       address: this.clientModel.address,
@@ -38,12 +39,21 @@ export class FormClientComponent implements OnInit {
     this.service.register(cliente).subscribe((res) => {
       console.log("CLIENTE CADATRADO =>", res);
     });
-    this.openSnackBar();
+    
+    this.openSnackBar(isEditing);
+    this.router.navigate(['/client'])
     sessionStorage.removeItem('isEditing')
   }
-  openSnackBar() {
-    this._snackBar.open("Cliente cadastrado com sucesso!", "fechar", {
-      duration: 5000,
-    });
+
+  openSnackBar(isEditing: boolean) {
+    if (isEditing) {
+      this._snackBar.open("Cliente editado com sucesso!", "fechar", {
+        duration: 5000,
+      });
+    } else {
+      this._snackBar.open("Cliente cadastrado com sucesso!", "fechar", {
+        duration: 5000,
+      });
+    }
   }
 }

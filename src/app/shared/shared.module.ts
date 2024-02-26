@@ -19,6 +19,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { IConfig, NgxMaskModule } from "ngx-mask";
 import { createTranslateLoader } from "../app.module";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 const maskOptions: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -39,6 +40,7 @@ const importExport = [
   MatTooltipModule,
   MatSortModule,
   MatPaginatorModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
