@@ -10,25 +10,23 @@ import { Product } from "src/app/common/models/product.model";
 })
 export class FormProductComponent implements OnInit {
   isEditing: any;
-  productModel;
+  productModel: Product;
 
-  constructor(
-    private _snackBar: MatSnackBar,
-    private router: Router) {}
+  constructor(private _snackBar: MatSnackBar, private router: Router) {}
 
   ngOnInit(): void {
-    this.isEditing = JSON.parse(sessionStorage.getItem('isEditing'));
+    this.isEditing = JSON.parse(sessionStorage.getItem("isEditing"));
     if (this.isEditing) {
       this.productModel = this.isEditing;
     } else {
-      this.productModel = new Product
+      this.productModel = new Product();
     }
   }
 
   triggerAction(isEditing: boolean) {
     this.openSnackBar(isEditing);
-    this.router.navigate(['/product'])
-    sessionStorage.removeItem('isEditing')
+    this.router.navigate(["/product"]);
+    sessionStorage.removeItem("isEditing");
   }
 
   openSnackBar(isEditing: boolean) {

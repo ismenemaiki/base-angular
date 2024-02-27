@@ -27,21 +27,21 @@ export class ProductComponent implements OnInit {
     "salePrice",
     "quantity",
     "provider",
-    
-  ]; // "costPrice","minStock",
+  ];
   productList = [
     {
       id: 1,
       productName: "agua sao lourenço",
-      salePrice: 10.00,
+      salePrice: 10.0,
       quantity: 48,
+      costPrice: 7,
       provider: "Joaozinho",
       minStock: 20,
     },
     {
       id: 2,
       productName: "gás liquigas",
-      salePrice: 99.00,
+      salePrice: 99.0,
       quantity: 15,
       provider: "liquigas",
       minStock: 5,

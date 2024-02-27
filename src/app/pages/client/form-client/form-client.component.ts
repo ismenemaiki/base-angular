@@ -19,11 +19,11 @@ export class FormClientComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isEditing = JSON.parse(sessionStorage.getItem('isEditing'));
+    this.isEditing = JSON.parse(sessionStorage.getItem("isEditing"));
     if (this.isEditing) {
       this.clientModel = this.isEditing;
     } else {
-      this.clientModel = new Client
+      this.clientModel = new Client();
     }
   }
 
@@ -39,10 +39,10 @@ export class FormClientComponent implements OnInit {
     this.service.register(cliente).subscribe((res) => {
       console.log("CLIENTE CADATRADO =>", res);
     });
-    
+
     this.openSnackBar(isEditing);
-    this.router.navigate(['/client'])
-    sessionStorage.removeItem('isEditing')
+    this.router.navigate(["/client"]);
+    sessionStorage.removeItem("isEditing");
   }
 
   openSnackBar(isEditing: boolean) {
