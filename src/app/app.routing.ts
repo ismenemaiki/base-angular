@@ -36,6 +36,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'sale',
+    loadChildren: () => import('./pages/sale/sale.module').then(m => m.SaleModule),
+    canActivate: [FeatureFlagGuard],
+    data: {
+      featureFlag: 'sale'
+    }
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

@@ -13,6 +13,7 @@ export class MenuService {
       Menu.build({name: 'i18n.menu.client', route: 'client', featureFlag: 'client'}),
       Menu.build({name: 'i18n.menu.product', route: 'product', featureFlag: 'product'}),
       Menu.build({name: 'i18n.menu.credit', route: 'credit', featureFlag: 'credit'}),
+      Menu.build({name: 'i18n.menu.sale', route: 'sale', featureFlag: 'sale'}),
     ]).pipe(
       map(item => item.filter(menu => menu.featureFlag && environment?.featureFlags[menu.featureFlag]))
     );

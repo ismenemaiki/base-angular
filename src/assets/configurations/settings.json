@@ -16,9 +16,10 @@
   },
   "featureFlags": {
     "home": true,
-    "about": true,
+    "about": false,
     "client": true,
     "product": true,
-    "credit": true
+    "credit": true,
+    "sale": true
   }
 }
