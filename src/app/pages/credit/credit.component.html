@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="space-between">
+    <h1>Lista de fiados</h1>
+    <div>
+      <button mat-raised-button color="primary" (click)="onRowClick('')">
+        Adicionar fiado
+      </button>
+    </div>
+  </div>
+  <div class="p-8">
+    <mat-form-field>
+      <mat-label>Filtrar</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Antonio"
+        #input
+      />
+    </mat-form-field>
+  </div>
+</div>
