@@ -1,1 +1,21 @@
-<p>sale works!</p>
+<div class="content">
+    <div class="space-between">
+      <h1>Vendas</h1>
+      <div>
+        <button mat-raised-button color="primary" (click)="onRowClick('')">
+          Registrar venda
+        </button>
+      </div>
+    </div>
+    <div class="p-8">
+        <mat-form-field>
+          <mat-label>Filtrar</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. cerveja SKOL"
+            #input
+          />
+        </mat-form-field>
+      </div>
+    </div>

@@ -10,7 +10,7 @@ import { FormSaleComponent } from './form-sale/form-sale.component';
     
     RouterModule.forChild([
       {path: '', component: SaleComponent},
-      {path: 'edit-add', component: FormSaleComponent}
+      {path: 'sell', component: FormSaleComponent}
     ])
   ],
   exports: [RouterModule]
