@@ -1,4 +1,5 @@
 @import "sass/theme";
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 .content {
   padding: 12px;
@@ -37,11 +38,13 @@ th {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-//   display: inline-block;
+  //   display: inline-block;
 }
 
-th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
-    padding-right: 8px;
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: 8px;
 }
 .d-flex {
   display: flex;
@@ -69,4 +72,8 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:la
 
 .full-width {
   width: 100%;
+}
+
+.justify-content-end {
+  justify-content: end;
 }

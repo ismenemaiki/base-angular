@@ -7,6 +7,9 @@
       </button>
     </div>
   </div>
+  <div class="p-8 d-flex justify-content-end">
+  <button mat-button (click)="openModal('filterModal')">Filtrar</button>
+  </div>
   <div class="p-8">
     <mat-form-field>
       <mat-label>Filtrar</mat-label>
@@ -61,5 +64,26 @@
       [pageSizeOptions]="[10, 25, 100]"
       aria-label="Selecione a quantidade por pagina"
     ></mat-paginator>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filterModalLabel">Filtros</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" (click)="closeModal('filterModal')">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal('filterModal')">Fechar</button>
+        <button type="button" class="btn btn-primary" (click)="filterList()">Aplicar Filtros</button>
+      </div>
+    </div>
   </div>
 </div>

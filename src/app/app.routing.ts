@@ -36,6 +36,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'credit',
+    loadChildren: () => import('./pages/credit/credit.module').then(m => m.CreditModule),
+    canActivate: [FeatureFlagGuard],
+    data: {
+      featureFlag: 'credit'
+    }
+  },
+  {
     path: 'sale',
     loadChildren: () => import('./pages/sale/sale.module').then(m => m.SaleModule),
     canActivate: [FeatureFlagGuard],
