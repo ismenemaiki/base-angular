@@ -1,1 +1,29 @@
-<p>form-sale works!</p>
+<div class="content">
+  <h1>Venda</h1>
+  <div class="p-8">
+    <mat-form-field>
+      <mat-label>Filtrar</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. cerveja SKOL"
+        #input
+      />
+    </mat-form-field>
+  </div>
+</div>
+
+<mat-selection-list #products>
+  <mat-list-option *ngFor="let item of filteredProductList" [selected]="isSelected(item)" (click)="toggleSelection(item)">
+    <span class="item">
+      {{ item.productName }} <small>{{ item.price }}</small>
+    </span>
+  </mat-list-option>
+</mat-selection-list>
+
+<div class="bottom-box">
+  <button mat-raised-button color="primary">
+    Adicionar {{ products.selectedOptions.selected.length }} produtos
+  </button>
+</div>
+<!-- <p>Options selected: {{shoes.selectedOptions.selected.length}}</p> -->
