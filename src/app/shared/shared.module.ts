@@ -40,7 +40,8 @@ const importExport = [
   MatTooltipModule,
   MatSortModule,
   MatPaginatorModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatListModule
 ];
 
 @NgModule({

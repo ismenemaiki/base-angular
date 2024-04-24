@@ -9,7 +9,7 @@ import { FormClientComponent } from './form-client/form-client.component';
     CommonModule,
     RouterModule.forChild([
       {path: '', component: ClientComponent},
-      {path: 'edit-add', component: FormClientComponent}
+      {path: 'edit-add', component: FormClientComponent, data: {breadcrumb: 'editar' }}
     
     ])
   ],
